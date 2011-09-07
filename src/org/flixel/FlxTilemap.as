@@ -1391,9 +1391,15 @@ package org.flixel
 				{
 					//Decide if this pixel/tile is solid (1) or not (0)
 					pixel = bitmapData.getPixel(column,row);
-					if(ColorMap != null)
+					if(ColorMap != null) {
+						if (pixel != 0xffffff && ColorMap.indexOf(pixel) == -1) {
+							trace("FIX THIS: ", pixel);
+						}
 						pixel = ColorMap.indexOf(pixel);
-					else if((Invert && (pixel > 0)) || (!Invert && (pixel == 0)))
+						if (pixel == 0xffffffff) {
+							pixel = 0;
+						}
+					} else if((Invert && (pixel > 0)) || (!Invert && (pixel == 0)))
 						pixel = 1;
 					else
 						pixel = 0;

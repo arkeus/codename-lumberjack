@@ -3,7 +3,7 @@ package {
 	
 	public class Preloader extends FlxPreloader {
 		public function Preloader() {
-			className = "Main";
+			className = "Lumberjack";
 			super();
 		}
 	}
