@@ -3,6 +3,12 @@ package com.arc.lumberjack.entity {
 	
 	import org.flixel.FlxSprite;
 
+	/**
+	 * Shiny yellow dots to collect.
+	 *  
+	 * @author Arkeus
+	 * 
+	 */
 	public class Coin extends FlxSprite {
 		public function Coin(x:Number, y:Number) {
 			super(x, y);

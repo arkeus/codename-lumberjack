@@ -13,7 +13,7 @@ package com.arc.lumberjack.utility {
 		}
 		
 		/**
-		 * A quicker absolute value function than the build in flash one. 
+		 * A quicker absolute value function than the built in flash one. 
 		 * 
 		 * @param n the number to find the absolute value of
 		 * @return the absolute value

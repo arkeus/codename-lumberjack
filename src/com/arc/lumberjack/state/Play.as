@@ -56,10 +56,17 @@ package com.arc.lumberjack.state {
 			FlxG.worldBounds.x = FlxG.camera.scroll.x;
 			
 			super.update();
+			
+			// This overlaps the player with the coins so he can collect them
 			FlxG.overlap(player, coins, coinCallback);
+			// This collides the player with the world so you don't fall through
 			FlxG.collide(player, world);
 		}
 		
+		/**
+		 * This function is called whenever a player object touches a coin. For simplicity sake, we
+		 * just destroy the coin, but typically we'd increment a coins counter here.
+		 */
 		private function coinCallback(a:FlxObject, b:FlxObject):void {
 			var player:Player = a is Player ? a as Player : b as Player;
 			var coin:Coin = a == player ? b as Coin : a as Coin;

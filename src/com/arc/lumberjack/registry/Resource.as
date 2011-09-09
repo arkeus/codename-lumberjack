@@ -1,4 +1,10 @@
 package com.arc.lumberjack.registry {
+	/**
+	 * This class simply holds all our art assets for easy loading.
+	 *  
+	 * @author Arkeus
+	 * 
+	 */	
 	public class Resource {
 		[Embed(source = "/player.png")] public static const PLAYER:Class;
 		[Embed(source = "/map.png")] public static const WORLD:Class;

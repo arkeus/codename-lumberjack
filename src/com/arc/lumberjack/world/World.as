@@ -8,7 +8,14 @@ package com.arc.lumberjack.world {
 	import org.flixel.FlxSprite;
 	import org.flixel.FlxTilemap;
 	import org.flixel.system.FlxTile;
-
+	
+	/**
+	 * This is the world tilemap which handles creation from bitmap along with binding of
+	 * the liquid tiles.
+	 *  
+	 * @author Arkeus
+	 * 
+	 */	
 	public class World extends FlxTilemap {
 		private var _width:int;
 		private var _height:int;
@@ -16,13 +23,23 @@ package com.arc.lumberjack.world {
 		public function World() {
 			super();
 			
+			// Get a BitmapData representation of our color bitmap
 			var pixels:BitmapData = new FlxSprite(0, 0, Resource.WORLD).pixels;
+			// Call the Flixel bitmapToCSV with the new color map array set to our tiles
 			var worldString:String = FlxTilemap.bitmapToCSV(pixels, false, 1, TILES);
+			// Load the map like normal
 			loadMap(worldString, Resource.TILES, Tile.WIDTH, Tile.HEIGHT, OFF, 0, 1, 25);
+			// Bind our liquid tiles to change player physics
 			setupLiquids();
 		}
 		
+		/** These are our liquid tile indices */
 		private static const LIQUID_TILES:Array = [8, 9, 18, 19];
+		/**
+		 * For each liquid tile index, bind that tile to the liquid callback. If the tile
+		 * indices were sequential, we wouldn't need the loop as setTitleProperties has
+		 * a range parameter.
+		 */
 		private function setupLiquids():void {
 			for each(var tileIndex:int in LIQUID_TILES) {
 				setTileProperties(tileIndex, NONE, liquidCallback, Player);
