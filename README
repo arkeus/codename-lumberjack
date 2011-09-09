@@ -1,5 +1,7 @@
 Codename Lumberjack is a simple flash game written using Actionscript 3.0 and Flixel.
 
+Play the game here: http://projects.iarke.us/codenamelumberjack/
+
 The game serves as a very basic tutorial for creating a simple adventure platformer in Flixel. It features:
 * Generating a world map from a color Bitmap (a future feature of Flixel, currently in the development and beta branches)
 * Various environments
